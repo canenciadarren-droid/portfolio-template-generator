@@ -131,7 +131,7 @@
                 You can customize the design after entering your information.
             </p>
 
-            <form action="/portfolio" method="POST">
+            <form action="/portfolio" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="form-grid">
                     <div class="field">
@@ -160,8 +160,9 @@
 
                     <div class="field full-width">
                         <label for="photo_url">Profile Photo URL</label>
-                        <input id="photo_url" name="photo_url" type="url"
-                               placeholder="https://example.com/photo.jpg">
+                        <input
+                             type="file" id="photo" name="photo"
+                                accept="image/jpeg,image/png,image/webp">
                         <p class="hint">For now, use a publicly accessible image URL.</p>
                     </div>
 
@@ -201,16 +202,6 @@
                         <textarea id="social_links" name="social_links"
                                   placeholder="GitHub, LinkedIn, Facebook, personal website..."></textarea>
                     </div>
-
-                    <div class="field full-width">
-                        <label for="template">Choose a Template *</label>
-                        <select id="template" name="template" required>
-                            <option value="simple">Simple</option>
-                            <option value="modern">Modern</option>
-                            <option value="creative">Creative</option>
-                        </select>
-                    </div>
-
                     <div class="field full-width">
                         <button type="submit">
                              Submit Portfolio
